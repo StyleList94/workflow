@@ -1,0 +1,5 @@
+{
+  "name": "E2E Testing(with private package)",
+  "description": "Run E2E testing action when require to private package",
+  "iconName": "testing"
+}

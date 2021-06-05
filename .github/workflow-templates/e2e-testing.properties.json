@@ -1,0 +1,5 @@
+{
+  "name": "E2E Testing",
+  "description": "Run E2E testing action",
+  "iconName": "testing"
+}
