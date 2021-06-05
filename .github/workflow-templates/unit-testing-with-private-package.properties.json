@@ -1,5 +1,5 @@
 {
   "name": "Unit Testing(with private package)",
   "description": "Run unit testing action when require to private package",
-  "iconName": "unit-testing"
+  "iconName": "testing"
 }

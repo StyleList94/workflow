@@ -64,6 +64,6 @@ jobs:
               ...context.repo,
               pull_number,
               body: "Unit test passed!",
-              event: "COMMENT"
+              event: "APPROVE"
             })
         if: ${{ success() && github.event_name == 'pull_request' }}
