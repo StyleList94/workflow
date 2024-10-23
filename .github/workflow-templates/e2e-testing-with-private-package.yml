@@ -13,7 +13,7 @@ on:
       - 'fix/*'
       - 'refactor/*'
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -26,18 +26,18 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node_version: ['12']
+        node_version: ['18']
         os: [ubuntu-latest]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: setup npm info
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           always-auth: true
-          node-version: '12.x'
+          node-version: '18'
           registry-url: https://registry.npmjs.org
           scope: 'your-scope-name'
       - name: install package
@@ -45,7 +45,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_ACCESS_TOKEN}}
       - name: testing
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v6
         with:
           install: false
           build: yarn build
@@ -54,7 +54,7 @@ jobs:
           wait-on-timeout: 120
           browser: chrome
       - name: review fail testing
-        uses: actions/github-script@v3.1.0
+        uses: actions/github-script@v7
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
@@ -68,7 +68,7 @@ jobs:
             })
         if: ${{ failure() && github.event_name == 'pull_request' }}
       - name: review success testing
-        uses: actions/github-script@v3.1.0
+        uses: actions/github-script@v7
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
