@@ -1,0 +1,5 @@
+{
+  "name": "Docker Deploy(with Render)",
+  "description": "Publish Docker image to github container registry and deploy to Render",
+  "iconName": "release"
+}
